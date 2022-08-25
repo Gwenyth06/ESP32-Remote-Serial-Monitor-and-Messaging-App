@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ESP32 Web Server Serial Monitor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/al
+l.css" integrity="sha384-
+fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="an
+onymous">
+</head>
+
+<body>
+    <div id="main">
+        <div>
+            <div>
+
+                <button class="btn btn-hero" style="margin-left: 20px;" onclick="openNav()"><i style="font-size:24px"
+                        class="fa">&#xf013;</i>Settings</button>
+                <div class="ws-status" id="ws-status-div">WS:<span id="ws-status"></span></div>
+                <h3  style="text-align: center;" id="serial-config"></h3>
+
+            </div>
+
+        </div>
+
+        <div style="text-align: center; margin-bottom: 100px;">
+            <h4 class="nav-center" style="text-align: center;">REMOTE SERIAL MONITOR</h2>
+                <div id="displayer" class="div-displayer">
+
+                </div>
+
+                <div style="text-align: center;">
+                    <input class="input" style="display: inline-block;vertical-align: center;" id="input" name="input">
+                    <button class="btn-hero" style="display: inline-block;vertical-align: center;"
+                        onclick="submitMessage()">SEND&#10148;</button>
+                </div>
+
+        </div>
+    </div>
+
+    <div id="mySidenav" class="sidenav">
+        <h3 class="uart-header">SERIAL PORT SETTINGS</h3>
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+        <form action="/get">
+            <div>
+                <label class="label" for="speed">Speed: </label>
+                <input class="input" list="speeds" id="speed" name="speed" required>
+                <datalist id="speeds">
+                    <option value=110></option>
+                    <option value=300></option>
+                    <option value=600></option>
+                    <option value=1200></option>
+                    <option value=2400></option>
+                    <option value=9600></option>
+                    <option value=14400></option>
+                    <option value=19200></option>
+                    <option value=38400></option>
+                    <option value=57600></option>
+                    <option value=115200></option>
+                    <option value=128000></option>
+                    <option value=153600></option>
+                    <option value=230400></option>
+                    <option value=460800></option>
+                    <option value=921600></option>
+                </datalist>
+                <label class="label" for="dataBit">Data bit: </label>
+                <input class="input" list="dataBits" id="dataBit" name="dataBit" required>
+                <datalist id="dataBits">
+                    <option value=7></option>
+                    <option value=8></option>
+                </datalist>
+                <label class="label" for="parity: ">Parity: </label>
+                <input class="input" list="parities" id="parity" name="parity" required>
+                <datalist id="parities">
+                    <option value=None></option>
+                    <option value=Even></option>
+                    <option value=Odd></option>
+                </datalist>
+                <label class="label" for="stopBit">Stop bit: </label>
+                <input class="input" list="stopBits" id="stopBit" name="stopBit" required>
+                <datalist id="stopBits">
+                    <option value=1></option>
+                    <option value=2></option>
+                </datalist>
+            </div>
+            <input class="btn btn-hero" type="submit" value="Apply">
+        </form>
+        <button class="btn btn-hero" style="margin-right: 20px;" onclick="logoutButton()">LOGOUT</button>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "330px";
+            document.getElementById("main").style.marginLeft = "330px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+        }
+    </script>
+
+</body>
+
+</html>
